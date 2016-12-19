@@ -1,0 +1,9 @@
+npm install npm -g
+npm install node-gyp -g
+npm install node-pre-gyp -g
+sudo apt install libudev-dev
+sudo apt install bluez-hcidump btscanner
+npm install usb
+npm install cylon
+npm install cylon-ble
+npm install cylon-sphero-ble
