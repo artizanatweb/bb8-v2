@@ -22,6 +22,36 @@ Cylon.robot({
       var white = 0xffffff;
       var black = 0x000000;
 
+      drone.bb8.on('collision', function(data) {
+          drone.bb8.color(red);
+          drone.bb8.stop();
+
+          console.log("Collision:");
+          console.log(data);
+          
+          setTimeout(function() {
+              drone.bb8.color(black);
+          }, 2000);
+      });
+      drone.bb8.detectCollisions();
+
+      drone.bb8.on('ImuAngles', function(data) {
+          console.log(data);
+      });
+      drone.bb8.streamImuAngles();
+
+      drone.bb8.on('accelerometer', function(data) {
+          console.log('accelerometer');
+          console.log(data);
+      });
+      drone.bb8.streamAccelerometer();
+
+      drone.bb8.on('odometer', function(data) {
+          console.log('odometer');
+          console.log(data);
+      });
+      drone.bb8.streamOdometer();
+
       drone.bb8.color(red);
 
       after(2000, function() {
@@ -35,5 +65,9 @@ Cylon.robot({
       after(6000, function() {
           drone.bb8.color(white);
       });
+
+    //   after(8000, function() {
+    //       drone.bb8.roll(120, 0);
+    //   });
   }
 }).start();
