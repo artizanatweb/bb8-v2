@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var Cylon = require('cylon');
 
 Cylon.robot({
@@ -20,10 +22,18 @@ Cylon.robot({
       var white = 0xffffff;
       var black = 0x000000;
 
-      drone.bb8.color(black);
+      drone.bb8.color(red);
 
       after(2000, function() {
           drone.bb8.color(blue);
+      });
+
+      after(4000, function() {
+          drone.bb8.color(green);
+      });
+
+      after(6000, function() {
+          drone.bb8.color(white);
       });
   }
 }).start();
